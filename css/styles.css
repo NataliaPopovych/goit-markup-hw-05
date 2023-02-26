@@ -95,6 +95,10 @@
   }
 
   /*Header*/
+  .header{
+    border-bottom: 1px solid var(--secondary-color);
+    box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);
+  }
   .site-nav .link{
     display: flex;
  align-items: center;
@@ -124,13 +128,12 @@ color: var(--main-color-title);
     font-size: 16px; 
     line-height: 1.5;
     letter-spacing: 0.02em;
+    position: relative;
     color: var(--main-color-description);
     text-decoration: none; 
     transition: color 250ms var(--time-transition);
   }
-  .nav-link:first-child{
-    margin-left: 76px;
-  }
+ 
   .nav-link:hover {color: var(--primary-button-color);
   }
   .nav-link:focus {color: var(--primary-button-color);}
@@ -153,12 +156,16 @@ border-radius: 2px;
 position: absolute;
 content: "";
 bottom:-1px;
-
+color: var(--primary-button-color);
  transition: transform 250ms var(--time-transition);
 }
+  .nav-link.current{
+    color: var(--primary-button-color);
+  }
+
   
-  .nav-link.current:hover::after,
-  .nav-link.current:focus::after
+  .nav-link.current::after,
+  .nav-link.current::after
   {
     background: currentColor;
    
@@ -176,11 +183,7 @@ letter-spacing: 0.03em;
 text-transform: uppercase;
 color: var(--main-color-title);
 text-decoration: none;
-  }
-  .studio-name:hover{color:  var(--primary-button-color);
-    }
-  .studio-name:focus{color:  var(--primary-button-color);
-    }   
+  }   
 
   .logo{ 
     color: var(--logo-color);
@@ -198,11 +201,10 @@ text-decoration: none;
   .header-container{ 
     display: flex;
     align-items: center;
-    box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);
+    
   }
   .container-nav{
     display: flex;
-   
     align-items: center;
     }
     .contacts-list{
@@ -263,7 +265,7 @@ line-height: 1.5;
 letter-spacing: 0.04em;
 padding: 16px 32px;
 border: transparent;
-
+transition: background-color 250ms var(--time-transition);
   }
   .service:hover, .service:focus{
 background-color: var(--primary-button-color);
@@ -526,9 +528,7 @@ margin: 0 auto;
 }
 
 
-.header{
-  border-bottom: 1px solid var(--secondary-color);
-}
+
 .project-examples{
 padding: 32px 16px;
 border-left: 1px solid var(--secondary-color);
@@ -662,7 +662,7 @@ margin-right: auto;
   height: 100%;
   background-color:rgba(46, 47, 66, 0.4);
   opacity: 1;
-    transition: opacity 250ms var(--time-transition);
+  transition: opacity 250ms var(--time-transition), visibility 250ms var(--time-transition);
 }
 
 .backdrop.is-hidden{
@@ -694,14 +694,13 @@ right: 24px;
 display: flex;
 justify-content: center;
 align-items: center;
-
+border-color: transparent;
 border: 1px solid rgba(0, 0, 0, 0.1);
 border-radius: 50%;
 background-color: var(--secondary-color);
 cursor: pointer;
 
 transition:background-color 250ms var(--time-transition), 
-border 250ms var(--time-transition),
 color 250ms var(--time-transition);
  
 }
@@ -713,6 +712,5 @@ color 250ms var(--time-transition);
 .modal-button:hover,
 .modal-button:focus{
   background-color:var(--primary-button-color);
-  border: transparent;
   color: #ffffff;
 }
